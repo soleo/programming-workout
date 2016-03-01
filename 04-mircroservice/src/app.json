@@ -1,0 +1,34 @@
+{
+  "name": "Book Finder",
+  "description": "Book Searching By ISBNs",
+  "image": "heroku/php",
+  "repository": "https://github.com/packbackbooks/exercise-xinjiang",
+  "env": {
+    "BOOK_VALORE": {
+      "description": "Site ID from Valore Books",
+      "required": true
+    },
+    "APP_KEY": {
+      "description": "Secret App Key",
+      "required": true
+    },
+    "REDIS_HOST": {
+      "description": "Redis Host",
+      "required": true
+    },
+    "REDIS_PASSWORD": {
+      "description": "Redis Password",
+      "required": true
+    },
+    "REDIS_PORT": {
+      "description": "Redis Port",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    }
+  ],
+  "addon": [ "heroku-redis" ]
+}
