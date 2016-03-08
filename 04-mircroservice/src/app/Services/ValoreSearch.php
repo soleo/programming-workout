@@ -54,7 +54,7 @@ class ValoreSearch implements Search
             }
             if (!empty($isbn)) {
                 Redis::set('book:price:'.$isbn, json_encode($book));
-                Redis::ttl("expire in 1 minute");
+                Redis::expireat('book:price:'.$isbn, strtotime("expire in 1 minute"));
             }
         }
         $response = array_merge($prices, $cachedResults);
